@@ -1,14 +1,42 @@
 import { Route, Routes } from 'react-router-dom';
+import Layout from './components/layout';
+import CreateRoomPage from './pages/create-room';
+import HomePage from './pages/home';
+import JoinRoomPage from './pages/join-room';
+import RoomPage from './pages/room';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome!</h1>
       <Routes>
-        <Route path="/" element={<h3>path /</h3>} />
-        <Route path="/create-room" element={<h3>new room</h3>} />
-        <Route path="/join-room/:roomId" element={<h3>new room</h3>} />
-        <Route path="/room/:roomId" element={<h3>meeting room</h3>} />
+        <Route path="/" element={<HomePage />} />
+
+        <Route
+          path="/create-room"
+          element={
+            <Layout>
+              <CreateRoomPage />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/join-room/:roomId"
+          element={
+            <Layout>
+              <JoinRoomPage />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/room/:roomId"
+          element={
+            <Layout>
+              <RoomPage />
+            </Layout>
+          }
+        />
       </Routes>
     </div>
   );
