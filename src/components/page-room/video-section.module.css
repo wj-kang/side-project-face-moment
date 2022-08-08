@@ -1,0 +1,46 @@
+.section {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+}
+
+.video__container {
+  overflow: hidden;
+  background: #777777;
+  min-height: 35rem;
+}
+
+.video__stream__my {
+}
+
+.video__stream__peer {
+}
+
+.menu {
+  overflow: hidden;
+  background: #c0c0c0;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btns button {
+  outline: none;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  color: #555555;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.btns button:hover {
+  background: #777777;
+  color: #f5f5f5;
+  opacity: 0.85;
+}
