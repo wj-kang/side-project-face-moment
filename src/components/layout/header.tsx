@@ -6,7 +6,6 @@ function Header() {
       <section className={styles.section}>
         <div className={styles.logo}>FaceMoment</div>
       </section>
-      <div className={styles.header_margin} />
     </>
   );
 }
