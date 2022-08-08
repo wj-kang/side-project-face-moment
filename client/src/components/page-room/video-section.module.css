@@ -1,0 +1,18 @@
+.section {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+}
+
+.video__container {
+  overflow: hidden;
+  background: #777777;
+  min-height: 35rem;
+}
+
+.video__stream__my {
+}
+
+.video__stream__peer {
+}
