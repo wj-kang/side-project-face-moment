@@ -37,6 +37,10 @@ class MediaStreamManager {
     this.currentVideoTrack.enabled = !this.currentVideoTrack.enabled;
   }
 
+  public setStreamIntoElement(element: HTMLVideoElement) {
+    element.srcObject = this.stream as MediaProvider;
+  }
+
   public getVideoDevices(): Promise<MediaDeviceInfo[]> {
     const videos = navigator.mediaDevices
       .enumerateDevices()

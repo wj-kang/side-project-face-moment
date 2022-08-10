@@ -12,6 +12,7 @@
 }
 
 .video__stream__my {
+  width: 100%;
 }
 
 .video__stream__peer {

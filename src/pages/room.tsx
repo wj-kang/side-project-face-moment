@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SocketContext } from '../context/socket';
+import MediaStreamManager from '../utils/media-stream-manager';
 import styles from './room.module.css';
 
 import { Socket } from 'socket.io-client';
@@ -10,29 +11,31 @@ import VideoSection from '../components/page-room/video-section';
 type Props = {};
 
 function RoomPage({}: Props) {
+  const streamManager = new MediaStreamManager();
   const socket: Socket = useContext(SocketContext);
   const { roomId } = useParams();
 
   useEffect(() => {
-    socket.connect().emit('join_room', roomId, handleJoinRoom);
+    socket.connect().emit('join_room', roomId, (result: boolean) => {
+      if (result) {
+        console.log('join success');
+      } else {
+        console.log('fail');
+        // Redirect to error page
+      }
+    });
+
+    // init media stream
+    streamManager
+      .getMedia() //
+      .then(() => streamManager.setStreamIntoElement(document.querySelector('#video__my')!));
   }, []);
-
-  function handleJoinRoom(result: boolean): void {
-    if (result) {
-      console.log('join success');
-    } else {
-      console.log('fail');
-      // Redirect to error page
-    }
-  }
-
-  socket.on('welcome', () => console.log('good'));
 
   return (
     <>
       <div className={styles.page__container}>
         <div className={styles.section__container}>
-          <VideoSection />
+          <VideoSection streamManager={streamManager} />
           <ChatSection />
         </div>
       </div>
