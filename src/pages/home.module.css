@@ -1,12 +1,11 @@
-.section {
-  width: 100vw;
-  padding: 12rem 1rem;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+.page__container {
+  padding-top: 6rem;
 }
 
 .container {
   width: 100%;
-  margin: auto;
+  max-width: 60rem;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +45,13 @@
 .left_box button {
   color: #f5f5f5;
   background-color: #2f4f4f;
+  border: none;
+  outline: none;
+  cursor: pointer;
   margin-top: 1rem;
+  padding: 1rem 0;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
   width: 100%;
 }
 
