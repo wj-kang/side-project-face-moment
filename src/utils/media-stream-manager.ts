@@ -1,40 +1,55 @@
 class MediaStreamManager {
   //
-  public stream: MediaStream | undefined;
+  private stream: MediaStream;
 
-  public currentAudioTrack: MediaStreamTrack | undefined;
+  public constructor(stream: MediaStream) {
+    this.stream = stream;
+  }
 
-  public currentVideoTrack: MediaStreamTrack | undefined;
+  public getStream(): MediaStream {
+    return this.stream;
+  }
 
-  public async getMedia(constraints?: MediaStreamConstraints): Promise<void> {
+  public setStream(stream: MediaStream): void {
+    this.stream = stream;
+  }
+
+  // MediaStream Factory Method
+  public static async getMedia(constraints?: MediaStreamConstraints): Promise<MediaStream> {
+    let stream: MediaStream;
+
     const defaultConstraints: MediaStreamConstraints = {
       audio: true,
       video: { facingMode: 'user' },
     };
 
-    try {
-      this.stream = await navigator.mediaDevices.getUserMedia(constraints || defaultConstraints);
-      this.currentVideoTrack = this.stream.getVideoTracks()[0];
-      this.currentAudioTrack = this.stream.getAudioTracks()[0];
-
-      // default initiation case => disable tracks
-      if (!constraints) {
-        this.currentAudioTrack.enabled = false;
-        this.currentVideoTrack.enabled = false;
-      }
-    } catch (e) {
-      console.error(e);
+    stream = await navigator.mediaDevices.getUserMedia(constraints || defaultConstraints);
+    // default initiation case => disable tracks
+    // user will turn them on when needed
+    if (!constraints) {
+      stream.getAudioTracks()[0].enabled = false;
+      stream.getVideoTracks()[0].enabled = false;
     }
+
+    return stream;
+  }
+
+  public getCurrentVideoTrack(): MediaStreamTrack {
+    return this.stream.getVideoTracks()[0];
+  }
+
+  public getCurrentAudioTrack(): MediaStreamTrack {
+    return this.stream.getAudioTracks()[0];
   }
 
   public toggleCurrentAudioStatus(): void {
-    if (!this.currentAudioTrack) return;
-    this.currentAudioTrack.enabled = !this.currentAudioTrack.enabled;
+    const track = this.getCurrentAudioTrack();
+    track.enabled = !track.enabled;
   }
 
   public toggleCurrentVideoStatus(): void {
-    if (!this.currentVideoTrack) return;
-    this.currentVideoTrack.enabled = !this.currentVideoTrack.enabled;
+    const track = this.getCurrentVideoTrack();
+    track.enabled = !track.enabled;
   }
 
   public setStreamIntoElement(element: HTMLVideoElement) {
