@@ -1,17 +1,18 @@
 class MediaStreamManager {
   //
-  private stream: MediaStream;
+  private _stream: MediaStream;
 
   public constructor(stream: MediaStream) {
-    this.stream = stream;
+    this._stream = stream;
+    this.setStreamIntoElement(document.querySelector('#video__my')!);
   }
 
   public getStream(): MediaStream {
-    return this.stream;
+    return this._stream;
   }
 
   public setStream(stream: MediaStream): void {
-    this.stream = stream;
+    this._stream = stream;
   }
 
   // MediaStream Factory Method
@@ -35,25 +36,27 @@ class MediaStreamManager {
   }
 
   public getCurrentVideoTrack(): MediaStreamTrack {
-    return this.stream.getVideoTracks()[0];
+    return this._stream.getVideoTracks()[0];
   }
 
   public getCurrentAudioTrack(): MediaStreamTrack {
-    return this.stream.getAudioTracks()[0];
+    return this._stream.getAudioTracks()[0];
   }
 
   public toggleCurrentAudioStatus(): void {
     const track = this.getCurrentAudioTrack();
+    if (!track) return;
     track.enabled = !track.enabled;
   }
 
   public toggleCurrentVideoStatus(): void {
     const track = this.getCurrentVideoTrack();
+    if (!track) return;
     track.enabled = !track.enabled;
   }
 
   public setStreamIntoElement(element: HTMLVideoElement) {
-    element.srcObject = this.stream as MediaProvider;
+    element.srcObject = this._stream as MediaProvider;
   }
 
   public getVideoDevices(): Promise<MediaDeviceInfo[]> {
