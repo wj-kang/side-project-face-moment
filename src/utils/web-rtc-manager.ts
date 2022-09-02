@@ -10,23 +10,23 @@ class WebRTCManager {
     socket.on('room_handshake', async () => {
       const rtcOffer = await this.peerConnection.createOffer();
       this.peerConnection.setLocalDescription(rtcOffer);
-      socket.emit('rtc_offer', rtcOffer, roomId);
+      socket.emit('send_rtc_offer', rtcOffer, roomId);
     });
 
-    socket.on('rtc_offer', async (rtcOffer) => {
+    socket.on('receive_rtc_offer', async (rtcOffer) => {
       this.peerConnection.setRemoteDescription(rtcOffer);
       const rtcAnswer = await this.peerConnection.createAnswer();
       this.peerConnection.setLocalDescription(rtcAnswer);
-      socket.emit('rtc_answer', rtcAnswer, roomId);
+      socket.emit('send_rtc_answer', rtcAnswer, roomId);
     });
 
-    socket.on('rtc_answer', async (rtcAnswer) => {
+    socket.on('receive_rtc_answer', async (rtcAnswer) => {
       this.peerConnection.setRemoteDescription(rtcAnswer);
     });
 
-    socket.on('rtc_ice_candidate', (rtcIceCandidate) => {
-      console.log('got ICE candidate => ', rtcIceCandidate);
-      this.peerConnection.addIceCandidate(rtcIceCandidate);
+    socket.on('receive_rtc_icecandidate', (ice) => {
+      console.log('got ICE candidate => ', ice);
+      this.peerConnection.addIceCandidate(ice);
     });
   }
 
@@ -46,25 +46,24 @@ class WebRTCManager {
     });
 
     peerConn.addEventListener('icecandidate', (e) => {
-      socket.emit('rtc_ice_candidate', e.candidate, roomId);
+      socket.emit('send_rtc_icecandidate', e.candidate, roomId);
     });
 
     peerConn.addEventListener('track', (e) => {
-      console.log('#$%#$%$#%', e.streams[0]);
-      // const peerVideo = document.querySelector('#video__peer') as HTMLVideoElement;
-      // peerVideo.srcObject = e.streams[0];
+      const peerVideo = document.querySelector('#video__peer') as HTMLVideoElement;
+      peerVideo.srcObject = e.streams[0];
     });
 
-    stream.getTracks().forEach((track: MediaStreamTrack) => peerConn.addTrack(track));
+    stream.getTracks().forEach((track: MediaStreamTrack) => peerConn.addTrack(track, stream));
 
     return peerConn;
   }
 
-  public addTracksOnPeerConnection(stream: MediaStream) {
-    stream //
-      .getTracks()
-      .forEach((track: MediaStreamTrack) => this.peerConnection.addTrack(track));
-  }
+  // public addTracksOnPeerConnection(stream: MediaStream) {
+  //   stream //
+  //     .getTracks()
+  //     .forEach((track: MediaStreamTrack) => this.peerConnection.addTrack(track, stream));
+  // }
 }
 
 export default WebRTCManager;
