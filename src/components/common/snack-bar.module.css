@@ -1,0 +1,28 @@
+.container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.snackbar {
+  z-index: -1;
+  margin-bottom: 4rem;
+
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-size: 1.25rem;
+  opacity: 0;
+
+  transition: all 350ms ease-in-out;
+}
+
+.snackbar.on {
+  z-index: 1;
+  opacity: 1;
+  margin-bottom: 5rem;
+}
