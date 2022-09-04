@@ -5,7 +5,7 @@
 
 .btns {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .btns button {
@@ -17,11 +17,24 @@
   cursor: pointer;
   transition: all 150ms ease-in;
   padding: 1rem 2rem;
-  margin: 0.5rem 0.5rem 0.5rem 0;
+  margin: 0.5rem;
 }
 
-.btns button:hover {
-  background: #777777;
+.btn__sound:hover,
+.btn__video:hover {
+  background: darkslategray;
+  color: #f5f5f5;
+  opacity: 0.85;
+}
+
+.btn__invite:hover {
+  background: rgb(5, 125, 125);
+  color: #f5f5f5;
+  opacity: 0.85;
+}
+
+.btn__end:hover {
+  background: rgb(149, 0, 0);
   color: #f5f5f5;
   opacity: 0.85;
 }
