@@ -27,9 +27,15 @@ function VideoMenu({
   }, [snackbarStatus]);
 
   function handleClickInviteBtn() {
-    console.log(window.location.href);
     navigator.clipboard.writeText(window.location.href);
     setSnackbar(true);
+  }
+
+  function handleClickEndBtn() {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm('Leave the room')) {
+      window.location.replace(window.location.origin);
+    }
   }
 
   return (
@@ -51,7 +57,9 @@ function VideoMenu({
             <button className={styles.btn__invite} onClick={handleClickInviteBtn}>
               Invite
             </button>
-            <button className={styles.btn__end}>End</button>
+            <button className={styles.btn__end} onClick={handleClickEndBtn}>
+              End
+            </button>
           </div>
         </div>
       </div>
