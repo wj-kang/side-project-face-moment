@@ -16,8 +16,9 @@ app.use((req, res) => res.status(404).send('404 Page Not Found'));
 
 const httpServer = http.createServer(app);
 // attach WS server on top of the http server
-const SocketIO = require('socket.io');
-const io = SocketIO(httpServer);
-require('./socket')(io);
+const { Server } = require('socket.io');
+const io = new Server(httpServer);
+const socketHandler = require('./socket');
+socketHandler(io);
 
 httpServer.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
