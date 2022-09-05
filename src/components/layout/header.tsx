@@ -4,7 +4,14 @@ function Header() {
   return (
     <>
       <section className={styles.section}>
-        <div className={styles.logo}>FaceMoment</div>
+        <div
+          className={styles.logo}
+          onClick={() => {
+            window.location.href = '/';
+          }}
+        >
+          FaceMoment
+        </div>
       </section>
     </>
   );

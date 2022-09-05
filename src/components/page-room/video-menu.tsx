@@ -44,7 +44,6 @@ function VideoMenu({
       <div className={styles.menu}>
         <div className={styles.btns}>
           <div className={styles.btns_left}>
-            {' '}
             <button className={styles.btn__sound} onClick={handleChangeAudioStatus}>
               {audioStatus ? 'Mute' : 'Unmute'}
             </button>

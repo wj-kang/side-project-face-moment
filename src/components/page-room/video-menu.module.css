@@ -1,5 +1,4 @@
 .menu {
-  overflow: hidden;
   background: #c0c0c0;
 }
 
@@ -12,11 +11,13 @@
   outline: none;
   background: none;
   border: none;
+
   border-radius: 0.5rem;
   color: #555555;
   cursor: pointer;
   transition: all 150ms ease-in;
   padding: 1rem 2rem;
+
   margin: 0.5rem;
 }
 

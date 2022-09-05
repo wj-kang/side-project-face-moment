@@ -12,7 +12,7 @@ function Layout({ children }: Props) {
     <section className={styles.section}>
       <Header />
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 }

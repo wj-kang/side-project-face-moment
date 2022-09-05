@@ -4,11 +4,11 @@ import styles from './home.module.css';
 import { useEffect } from 'react';
 
 function HomePage() {
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={styles.page__container}>
         <div className={styles.container}>
           <div className={styles.left_box}>
             <h1>FaceMoment</h1>
