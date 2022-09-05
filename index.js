@@ -12,6 +12,7 @@ app.use(
   morgan('dev')
 );
 
+app.get('/test', (req, res) => res.status(200).json({ msg: 'server is running' }));
 app.use((req, res) => res.status(404).send('404 Page Not Found'));
 
 const httpServer = http.createServer(app);
