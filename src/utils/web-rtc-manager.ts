@@ -3,7 +3,7 @@ import { Socket } from 'socket.io-client';
 class WebRTCManager {
   public peerConnection: RTCPeerConnection;
 
-  public constructor(socket: Socket, mediaStream: MediaStream, roomId: string) {
+  public constructor(socket: Socket, mediaStream: MediaStream, roomId: string, setConnection: Function) {
     this.peerConnection = this.createPeerConnection(socket, mediaStream, roomId);
 
     /* SOCKET CLIENT LISTENERS related to WebRTC*/
@@ -27,6 +27,11 @@ class WebRTCManager {
     socket.on('receive_rtc_icecandidate', (ice) => {
       console.log('got ICE candidate => ', ice);
       this.peerConnection.addIceCandidate(ice);
+      setConnection(true); // ui
+    });
+
+    socket.on('init_rtc', () => {
+      window.location.reload();
     });
   }
 
@@ -58,12 +63,6 @@ class WebRTCManager {
 
     return peerConn;
   }
-
-  // public addTracksOnPeerConnection(stream: MediaStream) {
-  //   stream //
-  //     .getTracks()
-  //     .forEach((track: MediaStreamTrack) => this.peerConnection.addTrack(track, stream));
-  // }
 }
 
 export default WebRTCManager;
