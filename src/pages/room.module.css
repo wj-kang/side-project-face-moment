@@ -1,12 +1,12 @@
 .page__container {
+  width: 100%;
   padding-top: 6rem;
+
+  display: flex;
+  justify-content: center;
 }
 
 .section__container {
-  max-width: 60rem;
-  margin: 0 auto;
+  min-width: 40rem;
   margin-top: 3rem;
-
-  display: flex;
-  gap: 1rem;
 }

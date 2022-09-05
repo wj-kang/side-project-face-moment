@@ -2,17 +2,74 @@
   overflow: hidden;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.4);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .video__container {
-  overflow: hidden;
-  background: #777777;
-  min-height: 25rem;
-}
-
-.video__stream__my {
   width: 100%;
+  position: relative;
+  background: #000000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 30rem;
 }
 
-.video__stream__peer {
+.video__stream {
+  width: 100%;
+  object-fit: contain;
+}
+
+.float__container {
+  position: absolute;
+
+  top: 1rem;
+  right: 1rem;
+  background: #000;
+
+  width: 8rem;
+  height: 6rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.float__container:hover {
+  opacity: 0.9;
+}
+
+.video__stream__float {
+  width: 100%;
+  object-fit: contain;
+}
+
+.video__message__box {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  color: #c0c0c0;
+}
+
+.video__message__sign__off {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: darkred;
+}
+
+.video__message__sign__on {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: rgb(0, 170, 0);
 }
