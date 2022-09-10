@@ -40,8 +40,10 @@ function VideoSection({ streamManager, rtcManager, isConnected }: Props) {
     const peerVideoSrc = peerVideo.srcObject;
     myVideo.id = 'video__peer';
     myVideo.srcObject = peerVideoSrc;
+    myVideo.muted = false;
     peerVideo.id = 'video__my';
     peerVideo.srcObject = myVideoSrc;
+    peerVideo.muted = true;
   }
 
   return (
@@ -61,11 +63,23 @@ function VideoSection({ streamManager, rtcManager, isConnected }: Props) {
           )}
         </div>
 
-        <video id="video__peer" autoPlay={true} playsInline={true} className={styles.video__stream}></video>
+        <video
+          id="video__peer"
+          autoPlay={true}
+          playsInline={true}
+          muted={false}
+          className={styles.video__stream}
+        ></video>
 
         <div className={styles.float__container} onClick={handleChangeVideoPosition}>
           <FlipIcon width="1rem" height="1rem" />
-          <video id="video__my" autoPlay={true} playsInline={true} className={styles.video__stream__float}></video>
+          <video
+            id="video__my"
+            autoPlay={true}
+            playsInline={true}
+            muted={true}
+            className={styles.video__stream__float}
+          ></video>
         </div>
       </div>
       <VideoMenu //

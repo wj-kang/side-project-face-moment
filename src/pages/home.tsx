@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getUUID } from '../utils/uuid';
 import styles from './home.module.css';
-import { useEffect } from 'react';
+import mockup from '../assets/mockup.png';
 
 function HomePage() {
   // useEffect(() => {}, []);
@@ -21,7 +21,9 @@ function HomePage() {
               </Link>
             </div>
           </div>
-          <div className={styles.right_box}>img</div>
+          <div className={styles.right_box}>
+            <img src={mockup} alt="mockup" />
+          </div>
         </div>
       </section>
     </>
