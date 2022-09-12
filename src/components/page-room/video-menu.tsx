@@ -1,23 +1,20 @@
 import { useEffect, useState } from 'react';
 import MediaStreamManager from '../../utils/media-stream-manager';
 import SnackBar from '../common/snack-bar';
+import SoundOffIcon from '../icons/sound-off';
+import SoundOnIcon from '../icons/sound-on';
+import VideoOffIcon from '../icons/video-off';
+import VideoOnIcon from '../icons/video-on';
 import styles from './video-menu.module.css';
 
 type Props = {
-  streamManager: MediaStreamManager | undefined;
   audioStatus: boolean;
   videoStatus: boolean;
   handleChangeVideoStatus: () => void;
   handleChangeAudioStatus: () => void;
 };
 
-function VideoMenu({
-  streamManager,
-  audioStatus,
-  videoStatus,
-  handleChangeVideoStatus,
-  handleChangeAudioStatus,
-}: Props) {
+function VideoMenu({ audioStatus, videoStatus, handleChangeVideoStatus, handleChangeAudioStatus }: Props) {
   const [snackbarStatus, setSnackbar] = useState(false);
 
   useEffect(() => {
@@ -44,11 +41,19 @@ function VideoMenu({
       <div className={styles.menu}>
         <div className={styles.btns}>
           <div className={styles.btns_left}>
-            <button className={styles.btn__sound} onClick={handleChangeAudioStatus}>
-              {audioStatus ? 'Mute' : 'Unmute'}
+            <button className={`${styles.btn__sound} ${audioStatus && styles.on}`} onClick={handleChangeAudioStatus}>
+              {audioStatus ? (
+                <SoundOffIcon width="1.25rem" height="1.25rem" />
+              ) : (
+                <SoundOnIcon width="1.25rem" height="1.25rem" />
+              )}
             </button>
-            <button className={styles.btn__video} onClick={handleChangeVideoStatus}>
-              {videoStatus ? 'Stop Video' : 'Start Video'}
+            <button className={`${styles.btn__video} ${videoStatus && styles.on}`} onClick={handleChangeVideoStatus}>
+              {videoStatus ? (
+                <VideoOffIcon width="1.25rem" height="1.25rem" />
+              ) : (
+                <VideoOnIcon width="1.25rem" height="1.25rem" />
+              )}
             </button>
           </div>
 
