@@ -10,7 +10,7 @@
 
 </br>
 
-### **Client **[[Repo]](https://github.com/wj-kang/personal-project-face-moment-client)** /**
+### **Client /**
 
 - Implemented by using **`TypeScript`**, **`React`**, and **[`socket-io`](https://socket.io/)**.
 - Learned about fundamentals of **[`WebRTC`]()** technology that enables web browsers to capture and stream audio and/or video through peer-to-peer connections with the **[`RTCPeerConnection`](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection)** API.
