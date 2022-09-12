@@ -41,7 +41,6 @@
 
 ![](https://img.shields.io/badge/backend-JAVASCRIPT-ffed26?style=for-the-badge&logo=javascript)</br>
 ![](https://img.shields.io/badge/backend-node.js-008a55?style=for-the-badge&logo=node.js)</br>
-
 ![](https://img.shields.io/badge/Socket.io-f5f5f5)
 ![](https://img.shields.io/badge/Express-f5f5f5)
 
@@ -57,8 +56,6 @@
 # 📸 **Screenshots**
 
 ![](https://wj-archive.s3.amazonaws.com/facemoment_img02.png)
-
-![](https://wj-archive.s3.amazonaws.com/facemoment_img03.png)
 
 ![](https://wj-archive.s3.amazonaws.com/facemoment_img04.png)
 
