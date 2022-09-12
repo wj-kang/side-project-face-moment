@@ -3,7 +3,6 @@ import Layout from './components/layout';
 import HomePage from './pages/home';
 import RoomPage from './pages/room';
 import { socket, SocketContext } from './context/socket';
-import 'normalize.css';
 
 function App() {
   return (

@@ -83,7 +83,6 @@ function VideoSection({ streamManager, rtcManager, isConnected }: Props) {
         </div>
       </div>
       <VideoMenu //
-        streamManager={streamManager}
         audioStatus={audioStatus}
         videoStatus={videoStatus}
         handleChangeVideoStatus={handleChangeVideoStatus}

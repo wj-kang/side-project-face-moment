@@ -4,8 +4,6 @@ import styles from './home.module.css';
 import mockup from '../assets/mockup.png';
 
 function HomePage() {
-  // useEffect(() => {}, []);
-
   return (
     <>
       <section className={styles.page__container}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './footer';
 import Header from './header';
 import styles from './index.module.css';
 
@@ -12,7 +11,6 @@ function Layout({ children }: Props) {
     <section className={styles.section}>
       <Header />
       <main>{children}</main>
-      {/* <Footer /> */}
     </section>
   );
 }

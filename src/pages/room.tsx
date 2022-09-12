@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { SocketContext } from '../context/socket';
-import MediaStreamManager from '../utils/media-stream-manager';
-import styles from './room.module.css';
-
 import { Socket } from 'socket.io-client';
-import VideoSection from '../components/page-room/video-section';
+import MediaStreamManager from '../utils/media-stream-manager';
 import WebRTCManager from '../utils/web-rtc-manager';
+import VideoSection from '../components/page-room/video-section';
+import styles from './room.module.css';
 
 function RoomPage() {
   const roomId = useParams().roomId || '';
@@ -24,7 +23,9 @@ function RoomPage() {
       .then(() => {
         socket.emit('join_room', roomId, (result: boolean) => {
           if (!result) {
-            console.log('Fail, Room Full');
+            // ROOM FULL
+            alert('This room is FULL. Only 2 Users are allowed at this moment.');
+            window.location.href = '/';
           }
         });
       });
@@ -35,7 +36,6 @@ function RoomPage() {
       <div className={styles.page__container}>
         <div className={styles.section__container}>
           <VideoSection streamManager={streamManager} rtcManager={rtcManager} isConnected={connection} />
-          {/* <ChatSection /> */}
         </div>
       </div>
     </>
