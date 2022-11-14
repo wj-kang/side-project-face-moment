@@ -11,7 +11,7 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/`)
+      .get(`${process.env.REACT_APP_BASE_URL}/test`)
       .then(() => {
         console.log(`Server is running on ${process.env.REACT_APP_BASE_URL}`);
         setServerOn(true);
