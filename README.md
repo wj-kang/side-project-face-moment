@@ -1,64 +1,34 @@
-# **💻 FaceMoment**</BR>**https://facemoment.wonjunkang.com**
+# **💻 FaceMoment**
 
-### Free video chat for face-to-face virtual meeting.
+### Simple video-chat for face-to-face virtual meeting.
 
-</br>
+- **App Link: [https://facemoment.wonjunkang.com](https://facemoment.wonjunkang.com)**
+- Repo: [side-project-face-moment](https://github.com/wj-kang/side-project-face-moment)
 
-# **👨🏻‍💻 About**
+![IMG](https://portfolio-assets-archive.s3.amazonaws.com/facemoment/facemoment2.png)
 
-### This is an individual side project to practice and improve my web development knowledge. </br>FaceMoment is a web application having a feature of video chat like Zoom.
+## **👨🏻‍💻 About**
 
-</br>
+FaceMoment is a web application with a simple **video-chat feature** like Zoom.  
+This is a personal toy project to practice and improve my web development skills.
 
-### **Client /**
+## **📚 Stacks**
 
-- Implemented by using **`TypeScript`**, **`React`**, and **[`socket-io`](https://socket.io/)**.
-- Learned about fundamentals of **[`WebRTC`]()** technology that enables web browsers to capture and stream audio and/or video through peer-to-peer connections with the **[`RTCPeerConnection`](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection)** API.
-- Learned about **[`MediaStream`](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)** web interface and related APIs to access and handle video/audio streams. Web-browser will ask for a permission to access user's camera and audio, and users can turn on/off their medias respectively.
-
-### **Server /**
-
-- Implemented the socket server by using **[`socket-io`](https://socket.io/)** with an **`Express`** server.
-
-### **Deployment /**
-
-- Used **`AWS S3`** static hosting for the client app, and traffic comes through **`CloudFront`**.
-- Used a **[`Render`](https://render.com/)** hosting service.
-
-</br>
-
-# **📚 Stacks**
-
-### **Front-end /**
-
-![](https://img.shields.io/badge/frontend-TYPESCRIPT-1c6bb4?style=for-the-badge&logo=typescript)</br>
-![](https://img.shields.io/badge/frontend-react-81d8f7?style=for-the-badge&logo=react)</br>
-![](https://img.shields.io/badge/MediaStream-f5f5f5)
-![](https://img.shields.io/badge/WebRTC-f5f5f5)
-![](https://img.shields.io/badge/Socket.io-f5f5f5)
-
-### **Back-end /**
-
-![](https://img.shields.io/badge/backend-JAVASCRIPT-ffed26?style=for-the-badge&logo=javascript)</br>
-![](https://img.shields.io/badge/backend-node.js-008a55?style=for-the-badge&logo=node.js)</br>
-![](https://img.shields.io/badge/Socket.io-f5f5f5)
-![](https://img.shields.io/badge/Express-f5f5f5)
-
-### **Deploy /**
-
+![](https://img.shields.io/badge/TYPESCRIPT-1c6bb4?style=for-the-badge&logo=typescript)
+![](https://img.shields.io/badge/react-40c4ff?style=for-the-badge&logo=react)
+![](https://img.shields.io/badge/JAVASCRIPT-ffed26?style=for-the-badge&logo=javascript)
+![](https://img.shields.io/badge/node.js-008a55?style=for-the-badge&logo=node.js)
+![](https://img.shields.io/badge/Express-f5f5f5?style=for-the-badge&logo=express)  
 ![](https://img.shields.io/badge/s3-232f3e?style=for-the-badge&logo=amazon)
 ![](https://img.shields.io/badge/cloudfront-232f3e?style=for-the-badge)
-![](https://img.shields.io/badge/route53-232f3e?style=for-the-badge)</br>
-![](https://img.shields.io/badge/Render-232f3e?style=for-the-badge&logo=render)
+![](https://img.shields.io/badge/route53-232f3e?style=for-the-badge)
+![](https://img.shields.io/badge/Render-232f3e?style=for-the-badge&logo=render)  
+![](https://img.shields.io/badge/WebRTC-f5f5f5)
+![](https://img.shields.io/badge/MediaStream-f5f5f5)
+![](https://img.shields.io/badge/Socket.IO-f5f5f5)
 
-</br></br>
+- Learned about fundamentals of **[WebRTC](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API)** technology that enables web browsers to capture and stream audio and/or video through peer-to-peer connections with the **[RTCPeerConnection](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection)** API.
 
-# 📸 **Screenshots**
+- Learned about **[MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)** web interface and related APIs to access and handle video/audio streams. Web-browser will ask for a permission to access user's camera and audio, and users can turn on/off their medias respectively.
 
-![](https://wj-archive.s3.amazonaws.com/facemoment_img02.png)
-
-![](https://wj-archive.s3.amazonaws.com/facemoment_img04.png)
-
-![](https://wj-archive.s3.amazonaws.com/facemoment_img01.jpeg)
-
----
+</br>
